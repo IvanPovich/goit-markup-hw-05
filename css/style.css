@@ -11,6 +11,8 @@
   --footer-hover: #31d0aa;
 
   --grey: rgba(46, 47, 66, 0.7);
+  --grey-overlay: #2E2F4266;
+  --dairy: #FCFCFC;
 
   --gap: 24px;
   --grid_4: calc((100% - 72px) / 4);
@@ -145,6 +147,7 @@ img {
 .container-footer {
   flex-direction: column;
 }
+
 /* #endregion */
 
 /* #region LOGO */
@@ -527,5 +530,48 @@ img {
 .link_footer_icon:hover,
 .link_footer_icon:focus {
   background-color: var(--footer-hover);
+}
+/* #endregion */
+
+/* #region OVERLAY */
+.modal-overlay {
+  z-index: 100;
+  background-image:
+    linear-gradient(var(--grey-overlay), var(--grey-overlay));
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease-in-out;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.modal {
+  background-color: var(--dairy);
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow:
+    0px 1px 1px 0px #00000024,
+    0px 1px 3px 0px #0000001F,
+    0px 2px 1px 0px #00000033;
+  
+  padding: 24px;
+  max-width: 408px;
+  max-height: 584px;
+  overflow-y: auto;
 }
 /* #endregion */
